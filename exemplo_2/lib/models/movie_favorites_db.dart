@@ -3,7 +3,7 @@ import 'dart:ffi';
 final class MoviesFavoriteDB {
   final Map<int, bool> _favorites = {};
 
-  void updateFavoriteFor({id = int}) {
+  void updateFavoriteFor({required int id}) {
     if (_favorites[id] == null) {
       _favorites[id] = true;
     } else {
@@ -11,7 +11,11 @@ final class MoviesFavoriteDB {
     }
   }
 
-  bool isFavoriteFor({id = int}) {
+  bool isFavoriteFor({required int id}) {
     return _favorites[id] != null ? _favorites[id]! : false;
+  }
+
+  List<int> getAllFavoriteIds() {
+    return _favorites.keys.where((id) => _favorites[id] == true).toList();
   }
 }
