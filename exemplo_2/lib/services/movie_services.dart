@@ -6,6 +6,7 @@ import 'package:http/http.dart' as http;
 
 final class MovieServices {
   final String baseUrl = 'https://api.themoviedb.org/3';
+
   Map<String, String> _defaultHeaders() {
     return {
       'Authorization':
