@@ -1,10 +1,12 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:developer';
 import 'package:exemplo_2/main.dart';
 import 'package:exemplo_2/models/movie.dart';
 import 'package:exemplo_2/models/movie_response.dart';
 import 'package:exemplo_2/pages/movie_detail_page.dart';
 import 'package:exemplo_2/pages/favorites_page.dart';
+import 'package:exemplo_2/services/movie_services.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -25,7 +27,7 @@ class _HomePageState extends State<HomePage> {
 
   final String _apiKey = '8c4edab7f1d2cc01cb82063fd29a13d3';
   final String _imageBaseUrl = 'https://image.tmdb.org/t/p/w500';
-
+  final MovieServices service = MovieServices();
   @override
   void initState() {
     super.initState();
@@ -33,18 +35,12 @@ class _HomePageState extends State<HomePage> {
   }
 
   Future<void> _fetchMovies() async {
-    final response = await http.get(Uri.parse(
-        'https://api.themoviedb.org/3/movie/popular?api_key=$_apiKey&page=$_page'));
-
-    if (response.statusCode == 200) {
-      final movieResponse = MovieResponse.fromJson(
-          jsonDecode(response.body) as Map<String, dynamic>);
+    try {
+      final response = await service.fetchMovies(page: _page);
       setState(() {
-        _movies.addAll(movieResponse.results);
+        _movies.addAll(response.results);
       });
-    } else {
-      throw Exception('Failed to load movies');
-    }
+    } catch (e) {}
   }
 
   void _loadMoreMovies(ScrollNotification scrollInfo) {
