@@ -1,6 +1,8 @@
+import 'package:exemplo_2/models/movie_favorites_db.dart';
 import 'package:exemplo_2/pages/home_page.dart';
 import 'package:flutter/material.dart';
 
+final MoviesFavoriteDB favoritesDatabase = MoviesFavoriteDB();
 main() {
   runApp(MyApp());
 }

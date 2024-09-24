@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
+import 'package:exemplo_2/main.dart';
 import 'package:exemplo_2/models/movie.dart';
 import 'package:exemplo_2/models/movie_response.dart';
 import 'package:exemplo_2/pages/movie_detail_page.dart';
@@ -63,11 +64,12 @@ class _HomePageState extends State<HomePage> {
 
   void _toggleFavorite(Movie movie) {
     setState(() {
-      if (_favoriteMovies.contains(movie)) {
+      if (favoritesDatabase.isFavoriteFor(id: movie.id)) {
         _favoriteMovies.remove(movie);
       } else {
         _favoriteMovies.add(movie);
       }
+      favoritesDatabase.updateFavoriteFor(id: movie.id);
     });
   }
 
@@ -76,9 +78,9 @@ class _HomePageState extends State<HomePage> {
       context,
       MaterialPageRoute(
         builder: (context) => FavoritesPage(
-          favoriteMovies: _favoriteMovies,
-          onFavoriteToggle: _toggleFavorite, // Passando a função
-        ),
+            favoriteMovies: _favoriteMovies.where((e) {
+          return favoritesDatabase.isFavoriteFor(id: e.id);
+        }).toList()),
       ),
     );
   }

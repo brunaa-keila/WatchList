@@ -1,3 +1,4 @@
+import 'package:exemplo_2/main.dart';
 import 'package:flutter/material.dart';
 import 'package:exemplo_2/models/movie.dart';
 
@@ -17,18 +18,15 @@ class MovieDetailPage extends StatefulWidget {
 }
 
 class _MovieDetailPageState extends State<MovieDetailPage> {
-  late bool _isFavorite;
-
   @override
   void initState() {
     super.initState();
-    _isFavorite = false; // Inicializa como não favorito
   }
 
   void _toggleFavorite() {
     setState(() {
-      _isFavorite = !_isFavorite;
-      widget.onFavoriteToggle(widget.movie); // Passa o movie
+      favoritesDatabase.updateFavoriteFor(id: widget.movie.id);
+      // widget.onFavoriteToggle(widget.movie); // Passa o movie
     });
   }
 
@@ -47,8 +45,12 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
           actions: [
             IconButton(
               icon: Icon(
-                _isFavorite ? Icons.favorite : Icons.favorite_border,
-                color: _isFavorite ? Colors.red : Colors.white,
+                favoritesDatabase.isFavoriteFor(id: widget.movie.id)
+                    ? Icons.favorite
+                    : Icons.favorite_border,
+                color: favoritesDatabase.isFavoriteFor(id: widget.movie.id)
+                    ? Colors.red
+                    : Colors.white,
               ),
               onPressed: _toggleFavorite,
             ),
