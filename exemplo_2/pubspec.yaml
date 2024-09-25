@@ -1,7 +1,6 @@
 name: exemplo_2
 description: "A new Flutter project."
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
-
 version: 1.0.0+1
 
 environment:
@@ -10,18 +9,16 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  http: ^1.2.2
-  cupertino_icons: ^1.0.8
+  http: ^1.2.2 
   json_serializable: ^6.8.0
   json_annotation: ^4.9.0
+  cupertino_icons: ^1.0.8
 
 dev_dependencies:
+  build_runner: ^2.4.12
   flutter_test:
     sdk: flutter
   flutter_lints: ^4.0.0
-  build_runner: ^2.4.12
 
 flutter:
   uses-material-design: true
-  assets:
-    - lib/assets/imagens/logo.png
