@@ -4,10 +4,13 @@
 Este projeto foi desenvolvido como parte de uma entrevista técnica, em um período de 5 dias. O foco principal foi construir um app de filmes usando Flutter e consumir a API do The Movie Database (TMDB). Durante o desenvolvimento, explorei novos conceitos da tecnologia, além de revisar e melhorar funcionalidades que já havia implementado em outros projetos.
 
 ## 📱Preview
-![Captura de tela 2024-09-24 212223](https://github.com/user-attachments/assets/80a4c688-807b-4114-8ffc-a9d952680f4c)
+
+![Splash](https://github.com/user-attachments/assets/4864cc3d-8142-4700-8770-bcaa743a9ee9)
+![Home_Page](https://github.com/user-attachments/assets/e9ee094a-35b7-4f07-a78d-64ad85f8e510)
+![filmes favoritados](https://github.com/user-attachments/assets/4703614f-d37f-498b-bafe-66397f6dcdf4)
+![Barra de pesquisa](https://github.com/user-attachments/assets/ca33e74a-0c7d-479e-b531-f0fba9bf5025)
 
 
-![Screenshot do App](link)
 
 ## 🛠️ Funcionalidades
 
