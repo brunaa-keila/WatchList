@@ -40,6 +40,7 @@ Este projeto foi desenvolvido como parte de uma entrevista técnica, em um perí
 
 - Ter o Flutter instalado. Siga [essas instruções](https://flutter.dev/docs/get-started/install) para instalar o Flutter.
 - Criar uma conta no [The Movie Database](https://www.themoviedb.org/) e gerar uma chave de API.
+- Lembrar de salvar pasta pubspec.yaml pra rodar as configurações da API
 
 ### Passos
 
