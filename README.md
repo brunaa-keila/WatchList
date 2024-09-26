@@ -24,7 +24,7 @@ Este projeto foi desenvolvido como parte de uma entrevista técnica, em um perí
 - **Flutter**: Framework para desenvolvimento mobile multiplataforma.
 - **Dart**: Linguagem de programação usada no Flutter.
 - **HTTP package**: Utilizado para fazer requisições à API do TMDB.
-- **Gerenciamento de estado com GetX**: Organiza a lógica de estado de forma eficiente.
+- **Gerenciamento de estado: Organiza a lógica de estado de forma eficiente.
   
 ## 📱 Telas
 
@@ -38,7 +38,6 @@ Este projeto foi desenvolvido como parte de uma entrevista técnica, em um perí
 ### Pré-requisitos
 
 - Ter o Flutter instalado. Siga [essas instruções](https://flutter.dev/docs/get-started/install) para instalar o Flutter.
-- Criar uma conta no [The Movie Database](https://www.themoviedb.org/) e gerar uma chave de API.
 - Lembrar de salvar pasta pubspec.yaml pra rodar as configurações da API
 
 ### Passos
