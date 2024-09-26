@@ -26,15 +26,15 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
   void _toggleFavorite() {
     setState(() {
       favoritesDatabase.updateFavoriteFor(id: widget.movie.id);
-      // widget.onFavoriteToggle(widget.movie); // Passa o movie
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color.fromARGB(255, 250, 234, 245),
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(30.0),
+        preferredSize: Size.fromHeight(60.0),
         child: AppBar(
           title: Text(
             'Watch List',
@@ -60,18 +60,18 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
+            SizedBox(height: 20),
             Image.network(
               widget.movie.thumbnailUrl,
-              fit: BoxFit.cover,
-              width: 200,
-              height: 250,
+              fit: BoxFit.contain,
+              width: 250,
+              height: 280,
             ),
             Padding(
               padding: const EdgeInsets.all(20.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // Título do Filme
                   Center(
                     child: Text(
                       widget.movie.title,
@@ -80,7 +80,6 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
                     ),
                   ),
                   SizedBox(height: 10),
-                  // Avaliação
                   Row(
                     children: [
                       Icon(Icons.star, color: Colors.yellow, size: 30),
@@ -89,7 +88,6 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
                     ],
                   ),
                   SizedBox(height: 10),
-                  // Informações
                   Text("Informações:",
                       style:
                           TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
@@ -97,7 +95,6 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
                   Text("Gênero: Ação, Aventura"),
                   Text("Duração: 120 min"),
                   SizedBox(height: 20),
-                  // Sinopse
                   Text("Sinopse:",
                       style:
                           TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),

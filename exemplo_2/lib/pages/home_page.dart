@@ -68,9 +68,9 @@ class _HomePageState extends State<HomePage> {
   void _toggleFavorite(Movie movie) {
     setState(() {
       if (favoritesDatabase.isFavoriteFor(id: movie.id)) {
-        _favoriteMovies.remove(movie);
+        _favoriteMovies.remove(movie); // Remove o filme dos favoritos
       } else {
-        _favoriteMovies.add(movie);
+        _favoriteMovies.add(movie); // Adiciona o filme aos favoritos
       }
       favoritesDatabase.updateFavoriteFor(id: movie.id);
     });
@@ -94,6 +94,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color.fromARGB(255, 250, 234, 245),
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(60.0),
         child: AppBar(
@@ -108,10 +109,9 @@ class _HomePageState extends State<HomePage> {
               icon: Icon(Icons.search),
               onPressed: () {
                 setState(() {
-                  _isSearching = !_isSearching; // Alterna a pesquisa
+                  _isSearching = !_isSearching;
                   if (!_isSearching) {
-                    _searchQuery =
-                        ''; // Limpa a consulta quando a pesquisa é fechada
+                    _searchQuery = '';
                   }
                 });
               },
@@ -206,9 +206,8 @@ class _HomePageState extends State<HomePage> {
                               },
                             )
                           : _isLoading
-                              ? CircularProgressIndicator() // Exibe um indicador de carregamento
-                              : Text(
-                                  'Nenhum filme encontrado'), // Mensagem caso não haja filmes
+                              ? CircularProgressIndicator()
+                              : Text('Nenhum filme encontrado'),
                     ),
                     if (_isLoading) CircularProgressIndicator(),
                   ],
@@ -224,7 +223,7 @@ class _HomePageState extends State<HomePage> {
           setState(() {
             _selectedIndex = index;
             if (index == 1) {
-              _navigateToFavorites(); // Navegar para a página de favoritos
+              _navigateToFavorites();
             }
           });
         },

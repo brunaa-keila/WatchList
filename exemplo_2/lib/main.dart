@@ -1,9 +1,10 @@
 import 'package:exemplo_2/models/movie_favorites_db.dart';
-import 'package:exemplo_2/pages/home_page.dart';
 import 'package:flutter/material.dart';
+import 'package:exemplo_2/widgets/splash_screen.dart';
 
 final MoviesFavoriteDB favoritesDatabase = MoviesFavoriteDB();
-main() {
+
+void main() {
   runApp(MyApp());
 }
 
@@ -15,9 +16,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primaryColor: Colors.green,
+        primaryColor: const Color.fromARGB(255, 236, 17, 236),
       ),
-      home: HomePage(),
+      home: SplashScreen(),
     );
   }
 }
