@@ -4,7 +4,7 @@ import 'package:exemplo_2/models/movie.dart';
 
 class MovieDetailPage extends StatefulWidget {
   final Movie movie;
-  final Function(Movie) onFavoriteToggle; // Mudou para aceitar Movie
+  final Function(Movie) onFavoriteToggle;
 
   const MovieDetailPage({
     Key? key,
@@ -13,8 +13,7 @@ class MovieDetailPage extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _MovieDetailPageState createState() =>
-      _MovieDetailPageState(); // Certifique-se de que isso esteja aqui
+  _MovieDetailPageState createState() => _MovieDetailPageState();
 }
 
 class _MovieDetailPageState extends State<MovieDetailPage> {
@@ -37,7 +36,7 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
         preferredSize: Size.fromHeight(60.0),
         child: AppBar(
           title: Text(
-            'Watch List',
+            'Detalhes do Filme',
             style: TextStyle(color: Colors.white),
           ),
           backgroundColor: Color.fromARGB(255, 178, 122, 192),

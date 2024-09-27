@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 final class MoviesFavoriteDB {
   final Map<int, bool> _favorites = {};
 

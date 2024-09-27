@@ -1,8 +1,7 @@
-// TODO Implement this library.import 'dart:async';
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:exemplo_2/pages/home_page.dart'; // Importando a página inicial (HomePage)
+import 'package:exemplo_2/pages/home_page.dart';
 
 class SplashScreen extends StatefulWidget {
   @override

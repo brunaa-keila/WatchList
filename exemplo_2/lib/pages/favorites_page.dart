@@ -53,7 +53,6 @@ class _FavoritesPageState extends State<FavoritesPage> {
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        // Imagem do filme
                         ClipRRect(
                           borderRadius: BorderRadius.circular(8),
                           child: Image.network(
@@ -69,7 +68,6 @@ class _FavoritesPageState extends State<FavoritesPage> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              // Título
                               Text(
                                 movie.title,
                                 style: const TextStyle(
@@ -104,7 +102,6 @@ class _FavoritesPageState extends State<FavoritesPage> {
                           onPressed: () {
                             setState(() {
                               favoritesDatabase.updateFavoriteFor(id: movie.id);
-
                               if (!favoritesDatabase.isFavoriteFor(
                                   id: movie.id)) {
                                 widget.favoriteMovies.removeAt(index);

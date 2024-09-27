@@ -1,11 +1,12 @@
 import 'dart:async';
 import 'package:exemplo_2/main.dart';
 import 'package:exemplo_2/models/movie.dart';
-import 'package:exemplo_2/models/movie_response.dart';
 import 'package:exemplo_2/pages/movie_detail_page.dart';
 import 'package:exemplo_2/pages/favorites_page.dart';
+import 'package:exemplo_2/pages/search_page.dart';
 import 'package:exemplo_2/services/movie_services.dart';
 import 'package:flutter/material.dart';
+import 'package:exemplo_2/widgets/BottomNavigationBar.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -19,9 +20,7 @@ class _HomePageState extends State<HomePage> {
   int _page = 1;
   bool _isLoading = false;
   bool _isSearching = false;
-  String _searchQuery = '';
 
-  final String _apiKey = '8c4edab7f1d2cc01cb82063fd29a13d3';
   final MovieServices service = MovieServices();
 
   @override
@@ -33,20 +32,19 @@ class _HomePageState extends State<HomePage> {
   Future<void> _fetchMovies() async {
     try {
       setState(() {
-        _isLoading = true; // Inicie o carregamento
+        _isLoading = true;
       });
       final response = await service.fetchMovies(page: _page);
       setState(() {
-        _movies.addAll(response.results); // Adicione os resultados
-        _isLoading = false; // Pare o carregamento
+        _movies.addAll(response.results);
+        _isLoading = false;
       });
-      print(
-          'Filmes carregados: ${_movies.length}'); // Verifique a quantidade de filmes
+      print('Filmes carregados: ${_movies.length}');
     } catch (e) {
       setState(() {
-        _isLoading = false; // Pare o carregamento em caso de erro
+        _isLoading = false;
       });
-      print('Erro ao carregar filmes: $e'); // Log do erro
+      print('Erro ao carregar filmes: $e');
     }
   }
 
@@ -68,9 +66,9 @@ class _HomePageState extends State<HomePage> {
   void _toggleFavorite(Movie movie) {
     setState(() {
       if (favoritesDatabase.isFavoriteFor(id: movie.id)) {
-        _favoriteMovies.remove(movie); // Remove o filme dos favoritos
+        _favoriteMovies.remove(movie);
       } else {
-        _favoriteMovies.add(movie); // Adiciona o filme aos favoritos
+        _favoriteMovies.add(movie);
       }
       favoritesDatabase.updateFavoriteFor(id: movie.id);
     });
@@ -91,6 +89,35 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
+  void _searchMovies(final String searchMovies) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => SearchPage(
+          searchMovies: searchMovies,
+        ),
+      ),
+    );
+  }
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+
+    switch (index) {
+      case 0:
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => HomePage()),
+        );
+        break;
+      case 1:
+        _navigateToFavorites();
+        break;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -99,7 +126,7 @@ class _HomePageState extends State<HomePage> {
         preferredSize: Size.fromHeight(60.0),
         child: AppBar(
           title: Text(
-            'Watch List',
+            'Lista de Filmes',
             style: TextStyle(color: Colors.white),
           ),
           backgroundColor: Color.fromARGB(255, 178, 122, 192),
@@ -110,9 +137,6 @@ class _HomePageState extends State<HomePage> {
               onPressed: () {
                 setState(() {
                   _isSearching = !_isSearching;
-                  if (!_isSearching) {
-                    _searchQuery = '';
-                  }
                 });
               },
             ),
@@ -125,11 +149,7 @@ class _HomePageState extends State<HomePage> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: TextField(
-                onChanged: (query) {
-                  setState(() {
-                    _searchQuery = query;
-                  });
-                },
+                onSubmitted: (query) => _searchMovies(query),
                 decoration: InputDecoration(
                   hintText: 'Pesquisar...',
                   border: OutlineInputBorder(),
@@ -217,30 +237,9 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(
+      bottomNavigationBar: CustomBottomNavigationBar(
         currentIndex: _selectedIndex,
-        onTap: (index) {
-          setState(() {
-            _selectedIndex = index;
-            if (index == 1) {
-              _navigateToFavorites();
-            }
-          });
-        },
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Início',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.star_border),
-            label: 'Favoritos',
-          ),
-        ],
-        selectedItemColor: const Color.fromARGB(255, 76, 4, 88),
-        unselectedItemColor: const Color.fromARGB(255, 255, 255, 255),
-        backgroundColor: Color.fromARGB(255, 178, 122, 192),
-        type: BottomNavigationBarType.fixed,
+        onTap: _onItemTapped,
       ),
     );
   }
