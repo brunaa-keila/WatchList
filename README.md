@@ -9,6 +9,8 @@ Este projeto foi desenvolvido como parte de uma entrevista técnica, em um perí
 ![Home_Page](https://github.com/user-attachments/assets/e9ee094a-35b7-4f07-a78d-64ad85f8e510)
 ![filmes favoritados](https://github.com/user-attachments/assets/4703614f-d37f-498b-bafe-66397f6dcdf4)
 ![Barra de pesquisa](https://github.com/user-attachments/assets/ca33e74a-0c7d-479e-b531-f0fba9bf5025)
+![tela de pesquisa](https://github.com/user-attachments/assets/d2777d14-cbf1-4f0d-8409-d0638d0e3bdf)
+![resultado da pesquisa](https://github.com/user-attachments/assets/e6cd78bf-e475-4f52-8af2-a7fae669002a)
 
 
 
@@ -18,6 +20,7 @@ Este projeto foi desenvolvido como parte de uma entrevista técnica, em um perí
 - **Lista de Filmes Favoritos**: Permite adicionar e remover filmes da lista de favoritos, que é persistida enquanto o aplicativo está em execução.
 - **Detalhes dos Filmes**: Exibe informações detalhadas de cada filme, como título, sinopse, avaliação e gênero.
 - **Paginação Infinita**: Carrega mais filmes automaticamente quando o usuário chega ao final da lista.
+- **Barra de pesquisa**: exibe filmes de acordo com titulo pesquisado.
   
 ## 🛠️ Tecnologias Utilizadas
 
@@ -31,6 +34,7 @@ Este projeto foi desenvolvido como parte de uma entrevista técnica, em um perí
 - **Home**: Tela inicial, que exibe o carrossel de filmes populares e uma grade de filmes.
 - **MovieDetails**: Exibe informações detalhadas sobre o filme selecionado.
 - **Favorites**: Lista de filmes que foram adicionados aos favoritos.
+- **Pesquisa**: Lista de filmes que foram pesquisados.
 
 
 ## Como Executar o Projeto
@@ -76,4 +80,3 @@ Este projeto foi desenvolvido como parte de uma entrevista técnica, em um perí
 - Persistência de favoritos usando banco de dados local (SQLite).
 - Implementar cache para melhorar a performance.
 - Melhorar a interface de usuário com animações e transições mais suaves.
-- Pesquisa de Filmes: escolher o filme a partir do pesquisar.
