@@ -44,8 +44,8 @@ Este projeto foi desenvolvido como parte de uma entrevista técnica, em um perí
 
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/seu-usuario/seu-repositorio.git
-   cd seu-repositorio
+     git clone https://github.com/brunaa-keila/WatchList.git
+   cd .\WatchList\exemplo_2\
    ```
 
 2. Instale as dependências:
@@ -53,9 +53,10 @@ Este projeto foi desenvolvido como parte de uma entrevista técnica, em um perí
    flutter pub get
    ```
 
-3. Adicione sua chave da API do TMDB no arquivo `movie_services.dart`:
+3. Adicione sua chave da API do TMDB no arquivo `\lib\services\movie_services.dart`:
    ```dart
-   final String _apiKey = 'SUA_API_KEY';
+   String _apiKey = 'SUA_API_KEY';
+
    ```
 
 4. Execute o projeto:
@@ -75,4 +76,4 @@ Este projeto foi desenvolvido como parte de uma entrevista técnica, em um perí
 - Persistência de favoritos usando banco de dados local (SQLite).
 - Implementar cache para melhorar a performance.
 - Melhorar a interface de usuário com animações e transições mais suaves.
-- Pesquisa de Filmes: Possibilidade de buscar por filmes diretamente na API do TMDB.
+- Pesquisa de Filmes: escolher o filme a partir do pesquisar.
