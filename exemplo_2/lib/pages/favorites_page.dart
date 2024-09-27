@@ -76,7 +76,7 @@ class _FavoritesPageState extends State<FavoritesPage> {
                                 ),
                               ),
                               const SizedBox(height: 8),
-                              // Descrição
+                              
                               Text(
                                 movie.overview,
                                 maxLines: 3,
@@ -89,7 +89,7 @@ class _FavoritesPageState extends State<FavoritesPage> {
                             ],
                           ),
                         ),
-                        // Ícone de favorito
+                        
                         IconButton(
                           icon: Icon(
                             favoritesDatabase.isFavoriteFor(id: movie.id)
