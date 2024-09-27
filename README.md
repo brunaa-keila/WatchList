@@ -76,4 +76,4 @@ Este projeto foi desenvolvido como parte de uma entrevista técnica, em um perí
 - Persistência de favoritos usando banco de dados local (SQLite).
 - Implementar cache para melhorar a performance.
 - Melhorar a interface de usuário com animações e transições mais suaves.
-- Pesquisa de Filmes: Possibilidade de buscar por filmes diretamente na API do TMDB.
+- Pesquisa de Filmes: escolher o filme a partir do pesquisar.
